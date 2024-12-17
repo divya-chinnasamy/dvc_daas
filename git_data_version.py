@@ -149,10 +149,10 @@ def save_metadata_to_json(metadata, output_file):
 if __name__ == "__main__":
     
     repo = init_git_repo()  
-    init_dvc()
-    bucket_name = "daas3dvctest"
-    region = "ap-south-1"  # Replace with your AWS region
-    configure_s3_dvc_remote(bucket_name, region)
+    # init_dvc()
+    # bucket_name = "daas3dvctest"
+    # region = "ap-south-1"  # Replace with your AWS region
+    # configure_s3_dvc_remote(bucket_name, region)
 
     data_file = "diabetes.csv"
     new_branch_name = data_file.split(".")[0]
@@ -172,13 +172,13 @@ if __name__ == "__main__":
 
     dvc_files = ["diabetes.csv.dvc"]
 
-    # Output JSON file
-    # output_file = "dataset_metadata.json"
+    #Output JSON file
+    output_file = "dataset_metadata.json"
 
-    # # Extract metadata and save to JSON
-    # try:
-    #     metadata = extract_dvc_metadata(dvc_files)
-    #     save_metadata_to_json(metadata, output_file)
-    #     print(f"Metadata successfully saved to {output_file}")
-    # except Exception as e:
-    #     print(f"Error: {e}")
+    # Extract metadata and save to JSON
+    try:
+        metadata = extract_dvc_metadata(dvc_files)
+        save_metadata_to_json(metadata, output_file)
+        print(f"Metadata successfully saved to {output_file}")
+    except Exception as e:
+        print(f"Error: {e}")

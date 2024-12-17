@@ -1,0 +1,4 @@
+[core]
+    remote = remotedvcs3
+['remote "remotedvcs3"']
+    url = s3://daas3dvctest
