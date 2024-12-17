@@ -149,7 +149,7 @@ def save_metadata_to_json(metadata, output_file):
 if __name__ == "__main__":
     
     repo = init_git_repo()  
-    # init_dvc()
+    init_dvc()
     # bucket_name = "daas3dvctest"
     # region = "ap-south-1"  # Replace with your AWS region
     # configure_s3_dvc_remote(bucket_name, region)
@@ -161,11 +161,11 @@ if __name__ == "__main__":
 
     add_data_to_dvc(data_file)
 
-    git_commit(repo, "Add updated diabetes.csv to DVC")
+    git_commit(repo, "Add modified diabetes.csv to DVC")
     push_to_dvc_remote()
     
     git_push(repo, remote_name, new_branch_name)
-    tag_name = "v1.0"   
+    tag_name = "v2.0"   
     git_tag(repo, tag_name)  
     dvc_checkout()   
     data = load_data(data_file)
